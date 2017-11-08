@@ -133,6 +133,34 @@ function wpm_custom_post_type()
         'rewrite' => array('slug' => 'item-about'),
     );
     register_post_type('item-about', $args);
+
+
+    $labels = array(
+        'name' => _x('Messages', 'Post Type General Name'),
+        'singular_name' => _x('Email', 'Post Type Singular Name'),
+        'menu_name' => __('Messages'),
+        'all_items' => __('Tous les Messages'),
+        'view_item' => __('Voir les Emails'),
+        'add_new_item' => __('Ajouter un nouvel Email'),
+        'add_new' => __('Ajouter'),
+        'edit_item' => __('Editer l\'Email'),
+        'update_item' => __('Modifier l\'Email'),
+        'search_items' => __('Rechercher un Email'),
+        'not_found' => __('Non trouvée'),
+        'not_found_in_trash' => __('Non trouvée dans la corbeille'),
+    );
+    $args = array(
+        'label' => __('Messages'),
+        'description' => __('Tous sur Messages'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields',),
+        'hierarchical' => false,
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'email'),
+    );
+    register_post_type('email', $args);
+    
 }
 
 add_action('init', 'wpm_custom_post_type', 9);
